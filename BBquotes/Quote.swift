@@ -26,6 +26,5 @@ struct Quote : Codable {
         author = try quoteContainer.decode(String.self, forKey: .author)
         series = try quoteContainer.decode(String.self, forKey: .series)
     }
-    
-    
+
 }
