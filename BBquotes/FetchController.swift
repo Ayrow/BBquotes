@@ -25,7 +25,7 @@ struct FetchController {
         }
         
         let quote = try JSONDecoder().decode(Quote.self, from: data)
-        
+
         return quote
     }
     
