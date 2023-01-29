@@ -10,6 +10,7 @@ import SwiftUI
 struct QuoteView: View {
     @StateObject private var viewModel = ViewModel(controller: FetchController())
     let show: String
+    @State var showCharacterScreen = false
     
     var body: some View {
         ZStack {
@@ -40,6 +41,12 @@ struct QuoteView: View {
                                 
                             } placeholder: {
                                 ProgressView()
+                            }
+                            .onTapGesture {
+                                showCharacterScreen.toggle()
+                            }
+                            .sheet(isPresented: $showCharacterScreen) {
+                                CharacterView(show: show, character: data.1)
                             }
                             
                             VStack {
